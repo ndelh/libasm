@@ -17,5 +17,6 @@ size_t	ft_strlen(const char *s);
 // ssize_t ft_write(int fd, const void *buf, size_t count);
 char*	ft_strcpy(char *dest, const char *src);
 int	    ft_strcmp(char *s1, char *s2);
+char*   ft_strdup(char *s1);
 // void    ft_hello_world(void);
 #endif

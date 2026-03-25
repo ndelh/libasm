@@ -37,3 +37,4 @@ ft_strcpy:
 
 .end:
     mov rax, r9
+    ret

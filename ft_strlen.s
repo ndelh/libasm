@@ -1,8 +1,6 @@
 bits 64
 global ft_strlen
 
-%define macro 0xffff
-
 section .text
 ft_strlen:
     mov rsi, rdi ; preserving original pointer

@@ -1,8 +1,8 @@
 bits 64
-global ft_strncmp
+global ft_strcmp
 
 section .text
-ft_strncmp:
+ft_strcmp:
     mov r8, 0x0101010101010101
     mov r9, 0x8080808080808080
     mov rcx, rdi
@@ -14,9 +14,7 @@ ft_strncmp:
     jnz .align_loop
 
 .fast_loop:
-    test rdx, rdx
     jz .end
-    test rdx, -8 ; checking if atleast one of the five strong bit is active, so if rdx is superior to seven
     jz .desync_finish_loop
     mov rcx, [rdi]
     mov r10, rcx
@@ -28,13 +26,11 @@ ft_strncmp:
     jnz .desync_finish_loop ;falling back to one by one
     xor r11, [rsi]
     jnz .desync_finish_loop
-    sub rdx, 8
     add rdi, 8
     add rsi, 8
     jmp .fast_loop
 
 .align_loop:
-    test rdx, rdx
     jz .end
     movzx rax, byte [rdi]
     movzx rcx, byte [rsi]
@@ -44,13 +40,11 @@ ft_strncmp:
     jz .end
     inc rdi
     inc rsi
-    dec rdx
     test rdi, 7
     jz .fast_loop
     jmp .align_loop
 
 .desync_finish_loop: 
-    test rdx, rdx
     jz .end
     movzx rax, byte [rdi]
     movzx rcx, byte [rsi]
@@ -60,7 +54,6 @@ ft_strncmp:
     jz .end
     inc rdi
     inc rsi
-    dec rdx
     jmp .desync_finish_loop
 
 .end:
