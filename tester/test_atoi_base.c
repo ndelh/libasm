@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libasm.h                                           :+:      :+:    :+:   */
+/*   test_atoi_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndelhota <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 12:11:33 by ndelhota          #+#    #+#             */
-/*   Updated: 2025/12/02 16:36:08 by ndelhota         ###   ########.fr       */
+/*   Created: 2026/04/01 16:36:55 by ndelhota          #+#    #+#             */
+/*   Updated: 2026/04/01 17:42:41 by ndelhota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBASM_H
-# define LIBASM_H
-# include <stdlib.h>
-size_t	ft_strlen(const char *s);
-ssize_t ft_write(int fd, const void *buf, size_t count);
-ssize_t ft_read(int fd, const void *buf, size_t count);
-char*	ft_strcpy(char *dest, const char *src);
-int	    ft_strcmp(char *s1, char *s2);
-char*   ft_strdup(char *s1);
-int     ft_atoi_base(char *str, char *base);
-#endif
+#include "../libasm.h"
+#include <stdio.h>
+
+int	main(int ac, char **argv)
+{
+	if (ac != 3)
+		return 1;
+	printf("result of atoi base for this nb: %s with this base: %s:\n%i"
+		, argv[1], argv[2], ft_atoi_base(argv[1], argv[2]));	
+}
