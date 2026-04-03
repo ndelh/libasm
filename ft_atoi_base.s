@@ -8,6 +8,10 @@ push r12
 push r13
 sub rsp, 264; reserving space to parse_base (256 + 8 for memory alignement)
 xor rax, rax
+test rdi, rdi ; null test
+jz .end
+test rsi, rsi ; null test
+jz .end
 mov r12, rdi ; preserving original argv[1]
 mov r13, rsi; preserving orginal argv[2]
 mov r9 , 1 ; r9 will be used as a sign marker
@@ -28,7 +32,6 @@ mov rdi, r13 ; putting base in rdi
 xor rax, rax
 
 .poisonning_table:
-
 mov rcx, 5
 lea rdi, [rsp + 9]
 mov al, 254
