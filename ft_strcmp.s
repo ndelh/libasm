@@ -14,11 +14,9 @@ ft_strcmp:
     jnz .align_loop
 
 .fast_loop:
-    jz .end
-    jz .desync_finish_loop
     mov rcx, [rdi]
     mov r10, rcx
-    mov r11, r10
+    mov r11, r10 ;storing content for later use with xor comparison
     sub rcx, r8 ;Swaring
     not r10
     and rcx, r10
@@ -31,7 +29,6 @@ ft_strcmp:
     jmp .fast_loop
 
 .align_loop:
-    jz .end
     movzx rax, byte [rdi]
     movzx rcx, byte [rsi]
     sub rax, rcx
@@ -45,7 +42,6 @@ ft_strcmp:
     jmp .align_loop
 
 .desync_finish_loop: 
-    jz .end
     movzx rax, byte [rdi]
     movzx rcx, byte [rsi]
     sub rax, rcx
