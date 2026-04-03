@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libasm.h"
+#include "../../libasm.h"
 #include <stdlib.h>
 #include <stdio.h>
 

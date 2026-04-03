@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libasm.h"
+#include "../../libasm.h"
 #include <stdio.h>
 #include <string.h>
 void	print_list(t_list* test)

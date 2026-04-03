@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
-#include "../libasm.h"
+#include "../../libasm.h"
 
 void	print_list(t_list *list)
 {
